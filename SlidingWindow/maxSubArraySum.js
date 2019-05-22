@@ -2,7 +2,7 @@
 of integers and a number called n. The function sould calculate the
 maximum sum of n consecutive elements in the array */
 
-// Time Complexity O(N^2
+// Time Complexity O(N^2)
 // Naive Approach 
 function maxSubArraySum(arr, num) {
 	if (num > arr.length) {
@@ -47,5 +47,5 @@ function maxSubArray(arr, num) {
 		maxSum = Math.max(maxSum, tempsum);
 	}
 	// Return the highest sum
-	returm maxSum;
+	return maxSum;
 }
