@@ -18,4 +18,22 @@ function collectOdd(arr) {
     return toReturn;
 }
 
-collectOdd([0,1,2,3,4,5,6,7,8,9,10]);
+// collectOdd([0,1,2,3,4,5,6,7,8,9,10]);
+
+function pureCollectOdd(arr) {                                   // Pure Recursion Method
+    let toReturn = [];
+
+    if (arr.length === 0) {
+        return toReturn;
+    }
+
+    if (arr[0] % 2 !== 0) {
+        toReturn.push(arr[0]);
+    }
+
+    toReturn = toReturn.concat(pureCollectOdd(arr.slice(1)));    // Here we call the method again Pure Recursion style   
+    console.log(toReturn);
+    return toReturn;
+}
+
+pureCollectOdd([0,1,2,3,4,5,6,7,8,9,10]);
