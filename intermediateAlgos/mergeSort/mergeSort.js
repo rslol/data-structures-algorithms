@@ -19,12 +19,12 @@ function merge(arr1, arr2) {
     }
 
     while (i < arr1.length) {
-        toReturn.push.push(arr1[i]);
+        toReturn.push(arr1[i]);
         i++;
     }
 
     while (j < arr2.length) {
-        toReturn.push.push(arr2[j]);
+        toReturn.push(arr2[j]);
         j++;
     }
 
@@ -36,7 +36,9 @@ function mergeSort(arr) {
     if(arr.length <= 1) return arr;
     // split array into 2 arrays 
     let mid = Math.floor(arr.length/2);
+    // Recursion
     let arr1 = mergeSort(arr.slice(0, mid));
     let arr2 = mergeSort(arr.slice(mid));
+
     return merge(arr1, arr2);
 }
