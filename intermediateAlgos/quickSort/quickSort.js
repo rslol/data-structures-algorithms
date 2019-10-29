@@ -25,11 +25,24 @@ function pivot(arr, start=0, end=arr.length+1) {
         if (pivot > arr[i]) {
             swapIdx++;
             swap(arr, swapIdx, i);
-            console.log(arr);
         }
     }
     swap(arr, start, swapIdx);
     return swapIdx;
 }
 
-pivot([76,45,2,6,109,3,5]);
+// Call the pivot helper on the array
+// When the helper returns the updated pivot index, recursively call the pivot helper on the subarray to the left and right of that index
+
+function quickSort(arr, left=0, right=arr.length-1) {
+	if (left < right) {
+		let pivotIndex = pivot(arr, left, right);
+		// Left side
+		quickSort(arr, left, pivotIndex-1);
+		// Right side
+		quickSort(arr, pivotIndex+1, right);
+	}
+	return arr;	
+}
+
+quickSort([76,45,2,6,109,3,5]);
