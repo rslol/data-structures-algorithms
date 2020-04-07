@@ -8,9 +8,14 @@ const q = new Queue();
 q.add(1);
 q.remove(); // returns 1
 
+-- For weave.js --
+Implement a 'peek' method in this class. 
+Peek should return the last element 
+from the queue without removing it. 
+
 */
 
-export default class Queue {
+class Queue {
     constructor() {
         this.store = [];
     }
@@ -22,4 +27,11 @@ export default class Queue {
     remove() {
         return this.store.pop();
     }
+
+    // Access the last element in array
+    peek() {
+        return this.store[this.store.length - 1];
+    }
 } 
+
+module.exports = Queue; 
