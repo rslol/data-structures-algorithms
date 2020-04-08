@@ -18,7 +18,9 @@ const Stack = require('../stackStructure/stack');
 
 class Queue {
     constructor() {
+        // The container that we add data to
         this.data1 = new Stack();
+        // The container that we remove (and peek) data from 
         this.data2 = new Stack();
     }
 
