@@ -1,6 +1,10 @@
 const weave = require('./weave');
 const Queue = require('./queue');
 
+test('Queue is a class', () => {
+  expect(typeof Queue.prototype.constructor).toEqual('function');
+});
+
 test('Queues have access to peek', () => {
     const q = new Queue();
     expect(typeof q.peek).toEqual('function')
