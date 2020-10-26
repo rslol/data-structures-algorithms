@@ -54,9 +54,9 @@ describe('GetLast', () => {
   test('returns the last element', () => {
     const l = new List();
     l.insertFirst(2);
-    expect(l.getLast()).toEqual({ data: 2, next: null });
+    expect(l.getLast()).toEqual({ data: 2, nextNode: null });
     l.insertFirst(1);
-    expect(l.getLast()).toEqual({ data: 2, next: null });
+    expect(l.getLast()).toEqual({ data: 2, nextNode: null });
   });
 });
 
@@ -135,7 +135,7 @@ describe('RemoveLast', () => {
   });
 });
 
-describe.skip('InsertLast', () => {
+describe('InsertLast', () => {
   test('adds to the end of the list', () => {
     const l = new List();
     l.insertFirst('a');
@@ -147,7 +147,7 @@ describe.skip('InsertLast', () => {
   });
 });
 
-describe.skip('GetAt', () => {
+describe('GetAt', () => {
   test('returns the node at given index', () => {
     const l = new List();
     expect(l.getAt(10)).toEqual(null);

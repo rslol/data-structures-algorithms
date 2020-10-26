@@ -49,12 +49,9 @@ class LinkedList {
 
     // Get the last node 
     getLast() { 
-        let node = this.head;
+        if (!this.head) return null;
 
-        // Knockout case
-        if (!node) {
-            return null;
-        } 
+        let node = this.head; 
 
         while (node) {
             // If the next node does not exist, return current node
@@ -83,6 +80,12 @@ class LinkedList {
         // Knockout case 
         if (!this.head) return null; 
 
+        // Knockout case
+        if (!this.head.nextNode) {
+            this.head = null; 
+            return; 
+        }
+
         let node = this.head;
         let next = this.head.nextNode;
 
@@ -101,9 +104,41 @@ class LinkedList {
     insertLast(data) {
         const newNode = new Node(data);
 
-        const lastNode = getLast();
+        // If there are no nodes in list, make new node the beginning of the list
+        if (!this.head) {
+            this.head = newNode; 
+        } 
         
-        lastNode.newNode = newNode; 
+        // Re-use code! Use the getLast() function to get the last node
+        else {
+            const lastNode = this.getLast();
+            // And point the last node to the newly created node
+            lastNode.nextNode = newNode;     
+        }
+    }
+
+    // Get the node at a given position 
+    getAt(index) {
+        // Knockout Case
+        if (!this.head) return null;
+
+        // Knockout Case: If index is larger than list 
+        // Will re-factor, this method means you loop through linkedlist twice
+        const listSize = this.size();
+        if (index > listSize) return null; 
+
+        // To solve this, we are going to use a counter and the index
+        let count = 0; 
+        let node = this.head; 
+        // if the counter does not match the index, go up one
+        while (count !== index) {
+            count++;
+            node = node.nextNode;
+        }
+
+        // While loop ends when the condition is false (in this case when count DOES equal the index)
+        // Return that node
+        return node; 
     }
 }
 
