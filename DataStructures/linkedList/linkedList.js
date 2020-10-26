@@ -70,9 +70,40 @@ class LinkedList {
         this.head = null;
     }
 
-    // Remove the first node 
+    // Move the head to the second node
     removeFirst() {
+        // Knockout case 
+        if (!this.head) return null;
+
         this.head = this.head.nextNode;
+    }
+
+    // Remove the last node from the LinkedList 
+    removeLast() {
+        // Knockout case 
+        if (!this.head) return null; 
+
+        let node = this.head;
+        let next = this.head.nextNode;
+
+        // When the while loop ends, we are at the end of the list
+        // We dont need to include an if statement, just after the loop ends then go ahead and set the second to last pointer to null 
+        while (next.nextNode) {
+            // In the while loop, we `slide` everything forward by one
+            node = next; 
+            next = next.nextNode;
+        }
+
+        node.nextNode = null;
+    }   
+
+    // Insert new node at end of LinkedList
+    insertLast(data) {
+        const newNode = new Node(data);
+
+        const lastNode = getLast();
+        
+        lastNode.newNode = newNode; 
     }
 }
 
