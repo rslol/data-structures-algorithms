@@ -124,8 +124,8 @@ class LinkedList {
 
         // Knockout Case: If index is larger than list 
         // Will re-factor, this method means you loop through linkedlist twice
-        const listSize = this.size();
-        if (index > listSize) return null; 
+        // const listSize = this.size();
+        // if (index > listSize) return null; 
 
         // To solve this, we are going to use a counter and the index
         let count = 0; 
@@ -134,11 +134,33 @@ class LinkedList {
         while (count !== index) {
             count++;
             node = node.nextNode;
+
+            // If there is no nextNode (you reached the end of the linkedlist), index is to large. Return null
+            if (node === null) return null;  
         }
 
         // While loop ends when the condition is false (in this case when count DOES equal the index)
         // Return that node
         return node; 
+    }
+
+    // Remove a node at a given index
+    removeAt(index) {
+        // Knockout case 
+        if (!this.head) return null; 
+        
+        // Knockout case: Remove the first node
+        if (index === 0) {
+            this.head = this.head.nextNode;
+            return; 
+        }
+
+        const previous = this.getAt(index - 1);
+
+        // Knockout case: If index is larger than list
+        if (previous === null || !previous.nextNode) return null; 
+        // const next = this.getAt(index + 1); /* This is valid, but avoid looping through the list twice */
+        previous.nextNode = previous.nextNode.nextNode; 
     }
 }
 
