@@ -162,6 +162,37 @@ class LinkedList {
         // const next = this.getAt(index + 1); /* This is valid, but avoid looping through the list twice */
         previous.nextNode = previous.nextNode.nextNode; 
     }
+
+    // Insert Node at given index
+    // If index is larger than the number of nodes, insert at end of linkedlist 
+    insertAt(data, index) {
+        // Knockout case: If there are no nodes 
+        if (this.head === null) {
+            const newNode = new Node(data);
+            this.head = newNode; 
+            return; 
+        }
+
+        // Knockout case: If the index is zero
+        if (index === 0) {
+            this.head = new Node(data, this.head); 
+            return; 
+        }
+
+        // Get the previous node
+        const previous = this.getAt(index - 1);
+
+        // Knockout case: if index is larger that linkedList
+        if (previous === null) {
+            const last = this.getLast();
+            last.nextNode = new Node(data); 
+            return; 
+        }
+        
+        // Create the new node with the new node following the previous node former next node (like a sandwhich, make the meat (the new node) 'sit' inbetween the two pieces of bread (the older nodes))
+        const newNode = new Node(data, previous.nextNode);
+        previous.nextNode = newNode; 
+    }
 }
 
 module.exports = { Node, LinkedList }; 
