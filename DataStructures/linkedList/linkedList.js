@@ -193,6 +193,12 @@ class LinkedList {
         const newNode = new Node(data, previous.nextNode);
         previous.nextNode = newNode; 
     }
+
+    // Run a function on each node 
+    forEach(func) {
+        
+
+    }
 }
 
 module.exports = { Node, LinkedList }; 
