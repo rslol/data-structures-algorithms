@@ -196,9 +196,26 @@ class LinkedList {
 
     // Run a function on each node 
     forEach(func) {
-        
+        // We will be using generators to iterate through the nodes 
+        let node = this.head; 
+        let counter = 0; 
+        while (node) {
+            func(node, counter); 
+            node = node.nextNode; 
+            counter++
+        }
+    }
 
+    // Allows iteration by for/of loop
+    // Generator function with the key of Symbol.iterator
+    *[Symbol.iterator]() {
+        let node = this.head; 
+        while (node) {
+            yield node; 
+            node = node.nextNode; 
+        }
     }
 }
 
 module.exports = { Node, LinkedList }; 
+ 
