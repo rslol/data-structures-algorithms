@@ -42,8 +42,16 @@ class Tree {
         }
     }
 
+    // Traverse Depth First (Go as deep as you can to the left of the tree, up to the closest parent, back down to the right, repeat)
     traverseDF(fn) {
-
+        const arr = [this.root];
+        while (arr.length) {
+            const node = arr.shift();
+            // Unlike traverseBF, we move the children to the FRONT of the array. 
+            // This makes us stay "to the right" of the tree and work our way down 
+            arr.unshift(...node.children);
+            fn(node); 
+        }
     }
 }
 
