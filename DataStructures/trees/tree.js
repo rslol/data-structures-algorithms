@@ -48,7 +48,7 @@ class Tree {
         while (arr.length) {
             const node = arr.shift();
             // Unlike traverseBF, we move the children to the FRONT of the array. 
-            // This makes us stay "to the right" of the tree and work our way down 
+            // This makes us stay "to the right" of the tree and work our way down
             arr.unshift(...node.children);
             fn(node); 
         }
