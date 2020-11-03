@@ -10,10 +10,15 @@ class Node {
     }
 
     add(data) {
-
+        const newNode = new Node(data); 
+        this.children.push(newNode); 
     }
 
-    remove() {
+    // Remove node that has that piece of data 
+    remove(data) {
+        this.children = this.children.filter(i => {
+            return i.data !== data; 
+        }); 
 
     }
 }
@@ -23,11 +28,23 @@ class Tree {
         this.root = root;
     }
 
-    traverseBFS() {
-
+    // Traverse Breadth First (top to bottom, left to right)
+    traverseBF(fn) {
+        const arr = [this.root]; 
+        // Because trees use an array, we will use array methods
+        while (arr.length) {
+            // shift method removes the first element in an array 
+            const node = arr.shift();
+            // Use the spread operator to take elements into the array 
+            arr.push(...node.children);
+            // Call the function on the node provided
+            fn(node);
+        }
     }
 
-    traverseDFS() {
-        
+    traverseDF(fn) {
+
     }
 }
+
+module.exports = { Node, Tree }; 

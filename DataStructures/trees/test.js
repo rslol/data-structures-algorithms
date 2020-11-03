@@ -1,4 +1,4 @@
-const T = require('./index');
+const T = require('./tree');
 const Node = T.Node;
 const Tree = T.Tree;
 
