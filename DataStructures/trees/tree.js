@@ -19,7 +19,13 @@ class Node {
         this.children = this.children.filter(i => {
             return i.data !== data; 
         }); 
+    }
 
+    // Search for a node and return that node 
+    search(data) {
+        return this.children.filter(node => {
+            return node.data === data ? node.data : null; 
+        });
     }
 }
 
@@ -30,7 +36,7 @@ class Tree {
 
     // Traverse Breadth First (top to bottom, left to right)
     traverseBF(fn) {
-        const arr = [this.root]; 
+        const arr = [this.root];    
         // Because trees use an array, we will use array methods
         while (arr.length) {
             // shift method removes the first element in an array 

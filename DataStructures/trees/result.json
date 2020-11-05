@@ -1,0 +1,44 @@
+{
+    "id": 74,
+    "parentId": null,
+    "children": [
+        {
+            "id": 62,
+            "parentId": 74,
+            "children": [
+                {
+                    "id": 59,
+                    "parentId": 62
+                },
+                {
+                    "id": 63,
+                    "parentId": 62
+                }
+            ]
+        },
+        {
+            "id": 86,
+            "parentId": 74,
+            "children": [
+                {
+                    "id": 80,
+                    "parentId": 86,
+                    "children": [
+                        {
+                            "id": 81,
+                            "parentId": 80
+                        },
+                        {
+                            "id": 76,
+                            "parentId": 80
+                        }
+                    ]
+                },
+                {
+                    "id": 87,
+                    "parentId": 86
+                }
+            ]
+        }
+    ]
+}
