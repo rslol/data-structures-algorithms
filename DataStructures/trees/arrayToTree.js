@@ -18,7 +18,7 @@ const data = [
 //  --- REVIEW REDUCE METHOD TO UNDERSTAND ---
 // First parameter: Accumulater
 // Second paramter: current value/element 
-// 
+
 const idMapping = data.reduce((acc, el, i) => {
     acc[el.id] = i; 
     return acc;
