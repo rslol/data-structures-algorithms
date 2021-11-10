@@ -17,7 +17,8 @@ const data = [
 // Iterate through the data array 
 //  --- REVIEW REDUCE METHOD TO UNDERSTAND ---
 // First parameter: Accumulater
-// Second paramter: current value/element 
+// Second parameter: current value/element 
+// Third parameter: index
 
 const idMapping = data.reduce((acc, el, i) => {
     acc[el.id] = i; 
@@ -35,3 +36,4 @@ data.forEach(el => {
     const parentEl = data[idMapping[el.parentId]];
     parentEl.children = [...(parentEl.children || []), el];
 })
+
